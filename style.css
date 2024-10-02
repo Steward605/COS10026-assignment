@@ -1,0 +1,654 @@
+/*Universal html page styling*/
+
+*, *::before, *::after {
+	box-sizing: inherit; /*Every element inherits box-sizing value from the html element*/
+}
+
+html, body {
+	scrollbar-width: thin;
+	width: 100%;
+}
+
+html {
+	line-height: 1.15; /*Correct the line height in all browsers.*/
+	box-sizing: border-box; /*Set to account for padding and border in height and width values instead of only the content*/
+	height: 100%;
+}
+
+body {
+	min-height: 100vh;
+	background-color: #B2D3C2; /* Slightly lighter background for better contrast */
+    color: #354A21; /* Default text color for readability */
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+/*This is to reduce browser inconsistencies in things like default line heights, margins and font sizes of headings, and so on*/
+html, body, header, footer, div, article, section, p, a, nav, ol, ul, li, form, table, tr, th, td, img, aside, fieldset, address, h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/*
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+*/
+
+footer {
+	width: 100%;
+	background-color: #03c04a;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 270px;
+	position: relative;
+	flex-grow: 1;
+	padding-top: 25px;
+}
+
+footer .f_flex_container {
+	width: 80%;
+	height: 80%;
+	text-align: center;
+	font-size: 1.25rem;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	flex-grow: 1;
+}
+
+footer .f_flex_container .f_flex_item {
+	padding: 10px;
+	width: 20%;
+	height: 100%;
+}
+
+footer .f_flex_container .f_logo {
+	object-fit: contain;
+	height: 150px;
+	width: 150px;
+	transition: transform 0.3s ease-in-out;
+}
+
+footer .f_flex_container .f_logo:hover {
+	transform: scale(1.1);
+}
+
+footer .f_flex_container .item0 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+footer .f_flex_container .item1 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+footer .f_flex_container .item2 {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: center;
+}
+
+footer .f_flex_container .item3 {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: center;
+}
+
+footer .f_flex_container .f_flex_item p {
+	padding: 10px;
+}
+
+footer .f_flex_container .f_flex_item p a {
+	font-family: Arial, sans-serif;
+	text-decoration: none;
+	color: #354A21;
+	letter-spacing: .1rem; /*Space out texts to make them look nicer*/
+}
+
+footer .f_flex_container .f_flex_item p a:hover {
+	text-decoration-line: underline overline;
+	text-decoration-style: double;
+	text-decoration-color: #B2D3C2;
+	text-decoration-thickness: 3px;
+	text-underline-offset: 6px;
+	opacity: 0.6;
+}
+
+footer .f_flex_container .f_flex_item p a:active {
+	color: #B2D3C2;
+}
+
+footer .copyright_disclaimer {
+	padding: 20px;
+	height: 20%;
+}
+
+footer .copyright_disclaimer p {
+	font-family: Arial, sans-serif;
+	text-align: center;
+}
+
+/*Index-specific footer styling*/
+
+#homepage_footer .f_flex_container .f_flex_item p a {
+	font-style: italic;
+}
+
+/*Navigation bar styling*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+	background-color: #03c04a;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 1;
+	height: 15vh;
+}
+
+.nav-links li a, .nav-links li .submenu a {
+	font-family: Arial, sans-serif;
+}
+
+/* Logo */
+.logo img {
+    height: 80px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links li {
+    position: relative;
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #354a21;
+    text-decoration: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 1.1rem;
+	letter-spacing: .1rem; /*Space out texts to make them look nicer*/
+}
+
+.nav-links a:hover {
+    background-color: #B2D3C2; 
+    transform: scale(1.05);
+}
+
+.nav-links > li > a {
+	border: 1px solid #03c04a; /*Prevents dropdown disappear when cursor hovers over the gap between navlink and dropdown*/
+}
+
+.dropdown_container {
+	position: relative;
+}
+
+/* Submenu styling */
+.submenu {
+    position: absolute;
+    top: 150%; 
+    left: 0;
+    background-color: #B2D3C2; 
+    list-style-type: none;
+    padding: 10px 0; 
+    display: none;
+    z-index: 10;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
+}
+
+/* Style for submenu items */
+.submenu li {
+    margin: 0;
+    width: 150px;
+}
+
+.submenu a {
+    padding: 10px 16px;
+    color: #354A21;
+    display: block;
+    text-decoration: none;
+    transition: background-color 0.3s;
+	letter-spacing: .1rem; /*Space out texts to make them look nicer*/
+}
+
+.submenu a:hover {
+    background-color: rgba(53, 74, 33, 0.5);
+}
+
+/* Show submenu on hover */
+.nav-links li:hover .submenu {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Fade-in animation for submenu */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Registration Button Styling */
+.registration a {
+    color: #354A21;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.2s;
+    background-color: #A3C7A7;
+	font-family: Arial, sans-serif;
+}
+
+.registration a:hover {
+    background-color: #B2D3C2;
+    transform: scale(1.05);
+}
+
+
+/* Responsive navbar for smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .submenu {
+        position: static;
+        box-shadow: none; 
+    }
+
+    .registration {
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+
+/*Individual html page styling*/
+
+/*Profile webpages styling*/
+.profile_container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 70%;
+	margin: 0 auto;
+	margin-bottom: 100px;
+	border: 10px dashed black;
+	border-radius: 10%;
+	padding: 50px;
+	overflow: hidden;
+	background-color: #73EC8B;
+	flex-grow: 1;
+	margin-top: 20vh;
+}
+
+.profile_pic_container {
+	padding: 20px;
+	overflow: hidden;
+	width: auto;
+	clear: both;
+}
+
+.profile_pic {
+	float: left;
+	object-fit: cover;
+	text-align: center;
+	border: 5px groove #354A21;
+	border-radius: 15px;
+	margin-left: 107px;
+}
+
+.profile_table {
+	border-radius: 30px;
+	width: 100%;
+	table-layout: fixed;
+}
+
+.profile_table, .profile_table tr, .profile_table td {
+	border: 3px dotted black;
+	overflow-x: auto; /*Make table responsive horizontally*/
+	border-spacing: 0;
+	overflow: hidden;
+	background-color: #D2FF72;
+}
+
+.profile_table tr td {
+	padding: 15px;
+	text-align: center;
+}
+
+.profile_table tr td h1 {
+	margin: 0;
+	padding-bottom: 10px;
+	font-weight: bold;
+}
+
+.profile_table tr td p {
+	font-size: 1.25rem;
+}
+
+.profile_bottom_section {
+	text-align: center;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 150%;
+	background-color: #03c04a;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	left: 50%;
+	top: -10%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	
+}
+
+.profile_bottom_section p a .fa-envelope {
+	font-size: 48px;
+	color: #354A21;
+}
+
+.profile_bottom_section p {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	padding: 10px;
+}
+
+.profile_bottom_section p a:hover {
+	opacity: 0.5;
+}
+
+.profile_bottom_section p::before {
+	content: "\00a0 ";
+}
+
+.profile_bottom_section address {
+	text-align: center;
+	height: 100%;
+}
+
+.profile_top_section {
+	text-align: center;
+}
+
+.profile_top_section .name_id {
+	font-size: 200%;
+}
+
+.name_id {
+	clear: both;
+	font-weight: bold;
+}
+
+.course {
+	font-size: 1.25rem;
+	clear: both;
+	color: #354A21;
+	padding-bottom: 30px;
+}
+
+.profile_section p, .profile_section address, .profile_section h1 {
+	font-family: Arial, sans-serif;
+}
+
+/*Index webpage styling*/
+#homepage_article {
+	flex-grow: 1;
+	width: 100%;
+	height: 100%;
+	padding-top: 15vh;
+}
+
+#homepage_title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 85vh;
+	/*Adds gradient overlay over background image*/
+	background-image: linear-gradient(to bottom, rgba(178, 211, 194, 0.4), rgba(178, 211, 194, 1)), url('herbarium_wallpaper.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+#homepage_title h1 {
+	font-family: Arial, sans-serif;
+	font-size: 5.5rem;
+	font-weight: bold;
+	position: relative;
+	z-index: 0;
+}
+
+/*Adds responsize customized underline for homepage_title*/
+#homepage_title h1::before {
+	content: "";
+	position: absolute;
+	width: 50%;
+	height: 3px;
+	bottom: -20%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-bottom: 3px solid #354A21;
+	z-index: 0;
+}
+
+.hp_empty_placeholder_chunk {
+	width: 100%;
+	height: 100px;
+}
+
+#hp_content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.hp_content_fcontainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding: 30px 0;
+	padding-right: 50px;
+	padding-left: 50px;
+}
+
+.hp_content_chunk h2, .hp_content_chunk p {
+	font-family: Arial, sans-serif;
+}
+
+.hp_subheader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 100px;
+}
+
+.hp_content_chunk h2 {
+	font-size: 3rem;
+	font-weight: bold;
+	position: relative;
+	z-index: 0;
+}
+
+.hp_content_chunk h2::before {
+	content: "";
+	position: absolute;
+	width: 200%;
+	height: 1px;
+	bottom: -30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-bottom: 1px solid #354A21;
+	z-index: 0;
+}
+
+.hp_img_in_p {
+	height: 400px;
+	border: 15px inset #354A21;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+	border-radius: 30px;
+}
+
+.hp_p_with_img {
+	padding: 20px;
+	text-align: center;
+}
+
+/*text at left, img at right*/
+.hp_p_no_img {
+	flex-basis: 60%;
+	padding: 30px;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	text-align: justify;
+}
+
+.hp_p_with_img {
+	flex-basis: 40%;
+}
+
+#hp_offers {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	padding: 30px;
+}
+
+#hp_offers h2, #hp_divtable .hp_divrow .hp_divcell {
+	font-family: Arial, sans-serif;
+}
+
+#hp_offers h2 {
+	height: 20%;
+	font-size: 3rem;
+	font-weight: bold;
+	position: relative;
+	z-index: 0;
+}
+
+#hp_offers h2::before {
+	content: "";
+	position: absolute;
+	width: 200%;
+	height: 1px;
+	bottom: -30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-bottom: 1px solid #354A21;
+	z-index: 0;
+}
+
+#hp_divtable {
+	width: 80%;
+	height: 80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+}
+
+#hp_divtable .hp_divrow {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+#hp_divtable .hp_divrow a {
+	flex: 1 1 0px; /*shorthand property for flex-grow, flex-shrink, flex-basis*/
+	border: 15px inset #354A21;
+	border-radius: 30px;
+	text-align: center;
+	min-height: 250px;
+	min-width: 50px;
+	margin: 30px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #03c04a;
+	color: #354A21;
+	text-decoration: none;
+}
+
+#hp_divtable .hp_divrow a:hover {
+	transition: all ease-in-out 0.2s;
+	border-color: rgba(53, 74, 33, 0.5);
+	background-color: rgba(3, 192, 74, 0.5);
+	color: rgba(53, 74, 33, 0.5);
+}
+
+#hp_divtable .hp_divrow a .hp_divcell h3 {
+	font-size: 1.75rem;
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+#hp_divtable .hp_divrow a .hp_divcell p {
+	font-size: 1.25rem;
+}
+
+#hp_divtable .hp_divrow a .hp_divcell h3, #hp_divtable .hp_divrow a .hp_divcell p {
+	
+}
